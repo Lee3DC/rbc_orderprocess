@@ -13,16 +13,16 @@ Library             RPA.Tables
 Library             RPA.PDF
 Library             RPA.FileSystem
 Library             RPA.Archive
-Library    			RPA.Robocorp.Vault
-
+Library             RPA.Robocorp.Vault
 
 
 *** Tasks ***
 Order robots from RSB
     ${configs}=    Init Settings
+    ${secret}=    Get Secret    op_credentials
     Directory Cleanup    ${configs}
-    Open Available Browser    ${configs}[homeURL]    headless=${FALSE}    maximized=${TRUE}
-    ${orders}=    Download Orders    ${configs}[csvURL]    ${configs}[excelPath]
+    Open Available Browser    ${secret}[homeURL]    headless=${FALSE}    maximized=${TRUE}
+    ${orders}=    Download Orders    ${secret}[csvURL]    ${secret}[excelPath]
     FOR    ${order}    IN    @{orders}
         Click Element    alias:ButtonYep
         Fill The Form    ${order}
@@ -35,6 +35,8 @@ Order robots from RSB
     Zip File    ${configs}[receiptsPath]    ${configs}[zipPath]
 
 Test
+    ${secret}=    Get Secret    op_credentials
+    Log    ${secret}[receiptPath]
 
 
 *** Keywords ***
@@ -46,17 +48,19 @@ Download Orders
     RETURN    @{table}
 
 Fill The Form
-    [Documentation]    Fill order information to the form
     [Arguments]    ${robot}
     Wait Until Page Contains Element    alias:ButtonOrder
     Select From List By Value    id:head    ${robot}[Head]
     Select Radio Button    body    ${robot}[Body]
-    Input Text    alias:1660565033488    ${robot}[Legs]
-    Input Text    alias:Address    ${robot}[Address]
+    Input Text    alias:LegLocator    ${robot}[Legs]
+    Input Text    alias:AddressLocator    ${robot}[Address]
     Click Element    alias:ButtonPreview
 
 Init Settings
-    ${items}=    Create Dictionary    homeURL=https://robotsparebinindustries.com/#/robot-order    csvURL=https://robotsparebinindustries.com/orders.csv    excelPath=data\\orders.csv    receiptsPath=${CURDIR}${/}receipts    screenshotPath=${CURDIR}${/}screenshot    zipPath=${CURDIR}${/}receipts.zip
+    ${items}=    Create Dictionary
+    ...    receiptsPath=${CURDIR}${/}receipts
+    ...    screenshotPath=${CURDIR}${/}screenshot
+    ...    zipPath=${CURDIR}${/}receipts.zip
     RETURN    ${items}
 
 Submit Order
@@ -66,7 +70,7 @@ Submit Order
     Assert Ordered
 
 Assert Ordered
-    Wait Until Page Contains Element    alias:ReceiptContent
+    Wait Until Page Contains Element    alias:ReceiptLocator
 
 Store Receipt Pdf
     [Documentation]    The robot should save each order HTML receipt as a PDF file
@@ -90,7 +94,7 @@ Embed Screenshot
     Open Pdf    ${pdf_file}
     ${items}=    Create List    ${screenshot_file}
     Add Files To Pdf    ${items}    ${pdf_file}    ${TRUE}
-    Close Pdf    ${pdf_file}
+    #Close Pdf    ${pdf_file}
 
 Zip File
     [Documentation]    Archive Folder with zip

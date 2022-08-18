@@ -1,6 +1,0 @@
-{
-  "op_credentials": {
-    "homeURL":"https://robotsparebinindustries.com/#/robot-order",
-    "csvURL": "https://robotsparebinindustries.com/orders.csv","excelPath":"data\\orders.csv"
-  }
-}

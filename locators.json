@@ -1,17 +1,10 @@
 {
-    "1660565033488": {
-        "screenshot": ".images\\1660565033488-screenshot.png",
+    "AddressLocator": {
+        "screenshot": ".images\\addresslocator-screenshot.png",
         "source": "https://robotsparebinindustries.com/#/robot-order",
-        "strategy": "xpath",
+        "strategy": "id",
         "type": "browser",
-        "value": "//div[@id='root']/div/div/div/div/form/div[3]/input"
-    },
-    "Address": {
-        "screenshot": ".images\\address-screenshot.png",
-        "source": "https://robotsparebinindustries.com/#/robot-order",
-        "strategy": "xpath",
-        "type": "browser",
-        "value": "//input[@id='address']"
+        "value": "address"
     },
     "ButtonOrder": {
         "screenshot": ".images\\buttonorder-screenshot.png",
@@ -34,6 +27,13 @@
         "type": "browser",
         "value": ".btn-warning"
     },
+    "LegLocator": {
+        "screenshot": ".images\\leglocator-screenshot.png",
+        "source": "https://robotsparebinindustries.com/#/robot-order",
+        "strategy": "xpath",
+        "type": "browser",
+        "value": "//div[@id='root']/div/div/div/div/form/div[3]/input"
+    },
     "OrderAnother": {
         "screenshot": ".images\\orderanother-screenshot.png",
         "source": "https://robotsparebinindustries.com/#/robot-order",
@@ -41,8 +41,8 @@
         "type": "browser",
         "value": "//button[@id='order-another']"
     },
-    "ReceiptContent": {
-        "screenshot": ".images\\receiptcontent-screenshot.png",
+    "ReceiptLocator": {
+        "screenshot": ".images\\receiptlocator-screenshot.png",
         "source": "https://robotsparebinindustries.com/#/robot-order",
         "strategy": "xpath",
         "type": "browser",
@@ -51,8 +51,8 @@
     "RobotPreviewImage": {
         "screenshot": ".images\\robotpreviewimage-screenshot.png",
         "source": "https://robotsparebinindustries.com/#/robot-order",
-        "strategy": "id",
+        "strategy": "xpath",
         "type": "browser",
-        "value": "robot-preview-image"
+        "value": "//div[@id='robot-preview-image']"
     }
 }

@@ -1,13 +1,12 @@
 tasks:
-  Order robots from RSB:
-    robotTaskName: Order robots from RSB
-  Test:
-    robotTaskName: Test
+  Run all tasks:
+    shell: python -m robot --report NONE --outputdir output --logtitle "Task log" tasks.robot
+
 condaConfigFile: conda.yaml
-ignoreFiles:
-- .gitignore
 artifactsDir: output
 PATH:
-- .
+  - .
 PYTHONPATH:
-- .
+  - .
+ignoreFiles:
+  - .gitignore
