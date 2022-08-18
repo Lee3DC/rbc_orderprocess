@@ -13,6 +13,8 @@ Library             RPA.Tables
 Library             RPA.PDF
 Library             RPA.FileSystem
 Library             RPA.Archive
+Library    			RPA.Robocorp.Vault
+
 
 
 *** Tasks ***
@@ -33,7 +35,6 @@ Order robots from RSB
     Zip File    ${configs}[receiptsPath]    ${configs}[zipPath]
 
 Test
-    Log    ${CURDIR}${/}output
 
 
 *** Keywords ***
