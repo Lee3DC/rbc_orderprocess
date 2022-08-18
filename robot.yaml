@@ -1,0 +1,13 @@
+tasks:
+  Order robots from RSB:
+    robotTaskName: Order robots from RSB
+  Test:
+    robotTaskName: Test
+condaConfigFile: conda.yaml
+ignoreFiles:
+- .gitignore
+artifactsDir: output
+PATH:
+- .
+PYTHONPATH:
+- .

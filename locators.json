@@ -1,0 +1,58 @@
+{
+    "1660565033488": {
+        "screenshot": ".images\\1660565033488-screenshot.png",
+        "source": "https://robotsparebinindustries.com/#/robot-order",
+        "strategy": "xpath",
+        "type": "browser",
+        "value": "//div[@id='root']/div/div/div/div/form/div[3]/input"
+    },
+    "Address": {
+        "screenshot": ".images\\address-screenshot.png",
+        "source": "https://robotsparebinindustries.com/#/robot-order",
+        "strategy": "xpath",
+        "type": "browser",
+        "value": "//input[@id='address']"
+    },
+    "ButtonOrder": {
+        "screenshot": ".images\\buttonorder-screenshot.png",
+        "source": "https://robotsparebinindustries.com/#/robot-order",
+        "strategy": "xpath",
+        "type": "browser",
+        "value": "//button[@id='order']"
+    },
+    "ButtonPreview": {
+        "screenshot": ".images\\buttonpreview-screenshot.png",
+        "source": "https://robotsparebinindustries.com/#/robot-order",
+        "strategy": "xpath",
+        "type": "browser",
+        "value": "//button[@id='preview']"
+    },
+    "ButtonYep": {
+        "screenshot": ".images\\buttonyep-screenshot.png",
+        "source": "https://robotsparebinindustries.com/#/robot-order",
+        "strategy": "css",
+        "type": "browser",
+        "value": ".btn-warning"
+    },
+    "OrderAnother": {
+        "screenshot": ".images\\orderanother-screenshot.png",
+        "source": "https://robotsparebinindustries.com/#/robot-order",
+        "strategy": "xpath",
+        "type": "browser",
+        "value": "//button[@id='order-another']"
+    },
+    "ReceiptContent": {
+        "screenshot": ".images\\receiptcontent-screenshot.png",
+        "source": "https://robotsparebinindustries.com/#/robot-order",
+        "strategy": "xpath",
+        "type": "browser",
+        "value": "//div[@id='receipt']"
+    },
+    "RobotPreviewImage": {
+        "screenshot": ".images\\robotpreviewimage-screenshot.png",
+        "source": "https://robotsparebinindustries.com/#/robot-order",
+        "strategy": "id",
+        "type": "browser",
+        "value": "robot-preview-image"
+    }
+}
